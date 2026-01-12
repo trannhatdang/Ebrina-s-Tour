@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	[SerializeField] float _hortSpeed = 2f;
-	[SerializeField] float _vertSpeed = 1f;
+	public int HortSpeed { get; private set; } = 2;
+	public int VertSpeed { get; private set; } = 1;
 
 	Vector2 _velocity;
 	bool _canAttack = true;
@@ -48,8 +48,8 @@ public class Player : MonoBehaviour
 
 	public void Move(InputAction.CallbackContext context)
 	{
-		float hort = context.ReadValue<Vector2>().x * _hortSpeed;
-		float vert = context.ReadValue<Vector2>().y * _vertSpeed;
+		float hort = context.ReadValue<Vector2>().x * HortSpeed;
+		float vert = context.ReadValue<Vector2>().y * VertSpeed;
 
 		_velocity = new Vector2(hort, vert);
 	}
@@ -60,6 +60,12 @@ public class Player : MonoBehaviour
 
 		_anim.SetTrigger("Attack");
 		_canAttack = false;
+	}
+
+//dashing, how?
+	public void Dash(InputAction.CallbackContext context)
+	{
+		_dashing = true;
 	}
 
 	public void SetAttack()
