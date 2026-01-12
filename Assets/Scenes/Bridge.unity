@@ -2934,6 +2934,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 90814d56-c312-4e97-a4c1-1f022c90783b
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 56f4ba8c-f477-4db8-99c0-5fcff1de1cf5
+    m_ActionName: 'Player/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 15b7635b-c3d9-4ee6-9f43-3187d342e070
+    m_ActionName: 'Player/Dash[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

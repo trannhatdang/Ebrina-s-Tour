@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
 	Vector2 _velocity;
 	bool _canAttack = true;
+	bool _isLeft = false;
 
 	Rigidbody2D _rb;
 	Animator _anim;
@@ -31,6 +32,17 @@ public class Player : MonoBehaviour
 			_anim.SetBool("Moving", false);
 		}
 
+		Vector3 _currentEuler = transform.eulerAngles;
+		if(_velocity.x > 0 && _isLeft)
+		{
+			transform.Rotate(0, 180, 0);
+			_isLeft = false;
+		}
+		else if(_velocity.x < 0 && !_isLeft)
+		{
+			transform.Rotate(0, 180, 0);
+			_isLeft = true;
+		}
 		_rb.MovePosition(_rb.position + _velocity * Time.fixedDeltaTime);
 	}
 
