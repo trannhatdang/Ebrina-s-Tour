@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	Vector2 _velocity;
 	bool _canAttack = true;
 	bool _isLeft = false;
+	bool _isDashing = false;
 
 	Rigidbody2D _rb;
 	Animator _anim;
@@ -65,7 +66,7 @@ public class Player : MonoBehaviour
 //dashing, how?
 	public void Dash(InputAction.CallbackContext context)
 	{
-		_dashing = true;
+		_isDashing = true;
 	}
 
 	public void SetAttack()

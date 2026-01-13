@@ -3,7 +3,7 @@ using UnityEngine;
 public class CameraBorder : MonoBehaviour
 {
 	MovingCamera _movingCamera;
-	[SerializeField] _isLeft = false;
+	[SerializeField] bool _isLeft = false;
 	void Start()
 	{
 		_movingCamera = transform.parent.GetComponent<MovingCamera>();

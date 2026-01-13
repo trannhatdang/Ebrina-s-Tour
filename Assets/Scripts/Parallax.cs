@@ -20,10 +20,10 @@ public class Parallax : MonoBehaviour
 			return;
 		}
 
-		for(int i = 0; i < _buildings.Count(); ++i)
+		for(int i = 0; i < _buildings.Count; ++i)
 		{
 			var building = _buildings[i];
-			Vector2 velocity = _movingCamera.moveLeft ? Vector2.left : Vector2.right;
+			Vector3 velocity = _movingCamera.moveLeft ? Vector2.left : Vector2.right;
 			velocity *= ((i + 1) * _baseSpeed);
 
 			building.transform.position = building.transform.position + velocity * Time.fixedDeltaTime;

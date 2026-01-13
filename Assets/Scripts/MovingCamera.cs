@@ -17,7 +17,7 @@ public class MovingCamera : MonoBehaviour
 		}
 		else
 		{
-			Debug.Error("No Player assigned for Camera!");
+			Debug.LogError("No Player assigned for Camera!");
 		}
 	}
 
@@ -36,7 +36,7 @@ public class MovingCamera : MonoBehaviour
 	{
 		if(!isMoving) return;
 
-		Vector2 velocity = new Vector2(0, 0);
+		Vector3 velocity = Vector3.zero;
 		if(moveLeft)
 		{
 			velocity = Vector2.left * _moveSpeed;
@@ -46,6 +46,6 @@ public class MovingCamera : MonoBehaviour
 			velocity = Vector2.right * _moveSpeed;
 		}
 
-		transform.position = transform.position + velocity * Time.fixedDeltaTime
+		transform.position = transform.position + velocity * Time.fixedDeltaTime;
 	}
 }
