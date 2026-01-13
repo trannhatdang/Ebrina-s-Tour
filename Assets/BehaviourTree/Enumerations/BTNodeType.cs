@@ -5,7 +5,8 @@ namespace BehaviourTree.Enumerations
 {
 	public enum BTNodeType
 	{
-		Default,
-		Reserved,
+		Test,
+		Move,
+		Idle,
 	}
 }

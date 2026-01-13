@@ -5,30 +5,20 @@ using UnityEngine.UIElements;
 
 namespace BehaviourTree.Elements
 {
+	using Enumerations;
 	public class BTTestNode : BTNode
 	{
-		public override bool CheckCondition(GameObject obj)
+		[SerializeField] int testInt;
+		public override void Initialize(Vector2 position)
 		{
-			return false;
+			base.Initialize(position);
+			NodeName = "TestNode";
+			NodeType = BTNodeType.Test;
 		}
-		public override void Behave(GameObject obj)
+
+		public override void Draw()
 		{
-			Debug.Log("test");
-		}
-		public void Draw()
-		{
-			TextField dialogueNameTextField = new TextField()
-			{
-				value = NodeName
-			};
-
-			titleContainer.Insert(0, dialogueNameTextField);
-
-			Port inputPort = InstantiatePort(Orientation.Horizontal, Direction.Input, Port.Capacity.Multi, typeof(bool));
-
-			inputPort.portName = "Node Connection";
-
-			inputContainer.Add(inputPort);
+			base.Draw();
 		}
 	}
 }

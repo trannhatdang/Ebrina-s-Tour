@@ -31,7 +31,7 @@ namespace BehaviourTree.Windows
 		private IManipulator CreateNodeContextualMenu()
 		{
 			ContextualMenuManipulator contextualMenuManipulator = new ContextualMenuManipulator(
-				menuEvent => menuEvent.menu.AppendAction("Add Node", actionEvent => AddElement(CreateNode(actionEvent.eventInfo.localMousePosition)))
+				menuEvent => menuEvent.menu.AppendAction("Add Test Node", actionEvent => AddElement(CreateTestNode(actionEvent.eventInfo.localMousePosition)))
 			);
 
 			return contextualMenuManipulator;
@@ -46,7 +46,7 @@ namespace BehaviourTree.Windows
 			Insert(0, gridBackground);
 		}
 
-		private BTTestNode CreateNode(Vector2 position)
+		private BTTestNode CreateTestNode(Vector2 position)
 		{
 			BTTestNode node = new BTTestNode();
 
