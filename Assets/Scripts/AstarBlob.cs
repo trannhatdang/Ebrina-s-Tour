@@ -15,7 +15,7 @@ public class AstarBlob : MonoBehaviour
 	}
 
 	void OnCollisionExit2D(Collision2D other)
-	{
+	{ 
 		_isColliding = false;
 		_collidingPlayer = false;
 	}
