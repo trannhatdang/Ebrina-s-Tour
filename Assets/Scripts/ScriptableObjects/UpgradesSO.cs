@@ -9,10 +9,16 @@ public class UpgradesSO : ScriptableObject
 	}
 
 	[SerializeField] UpgradeType _type;*/
+	[SerializeField] string _upgradeName;
 	[SerializeField] int _hpBoost;
 	[SerializeField] int _atkBoost;
 	[SerializeField] int _defBoost;
 
+    public string UpgradeName
+	{
+	    get { return _upgradeName; }
+		private set { _upgradeName = value; }
+	}
 	public int HPBoost
 	{
 		get { return _hpBoost; }
