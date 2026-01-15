@@ -49,6 +49,45 @@ public abstract class StatsSO : ScriptableObject
 		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEF);
 	}
 
+	protected int GetHPStatAfterBuffs()
+	{
+		if(_upgrades.Count == 0) return;
+		int retval = GetHPStatAfterUpgrades();
+
+		for(var buff in _buffs)
+		{
+			retval += buff.HPBuff;
+		}
+
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_HP);
+	}
+	
+	protected int GetATKStatAfterUpgrades()
+	{
+		if(_upgrades.Count == 0) return;
+		int retval = GetATKStatAfterUpgrades();
+
+		for(var buff in _buffs)
+		{
+			retval += buff.ATKBuff;
+		}
+
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATK);
+	}
+
+	protected int GetDEFStatAfterUpgrades()
+	{
+		if(_upgrades.Count == 0) return;
+		int retval = GetDEFAfterUpgrades();
+
+		for(var buff in _buffs)
+		{
+			retval += buff.DEFBoost;
+		}
+
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEF);
+	}
+
 	public abstract int GetHP(bool _hasUpgrades = true);
 	public abstract int GetATK(bool _hasUpgrades = true);
 	public abstract int GetDEF(bool _hasUpgrades = true);
