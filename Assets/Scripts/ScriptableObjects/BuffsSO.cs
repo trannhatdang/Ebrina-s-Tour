@@ -9,6 +9,7 @@ public class BuffsSO : ScriptableObject
         [SerializeField] int _hpBuff;
         [SerializeField] int _atkBuff;
         [SerializeField] int _defBuff;
+        [SerializeField] float _timeToLive;
         
         public string BuffName 
         {
@@ -37,6 +38,12 @@ public class BuffsSO : ScriptableObject
         {
                 get { return _defBuff; }
                 private set { _defBuff = value; }
+        }
+
+        public float TimeTolive
+        {
+                get { return _timeToLive; }
+                private set { _timeToLive = value; }
         }
         
   
