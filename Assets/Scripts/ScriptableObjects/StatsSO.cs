@@ -38,7 +38,6 @@ public abstract class StatsSO : ScriptableObject
 
 	protected int GetDEFStatAfterUpgrades()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = _defenseStat;
 
 		for(var upgrade in _upgrades)
@@ -51,7 +50,6 @@ public abstract class StatsSO : ScriptableObject
 
 	protected int GetHPStatAfterBuffs()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = GetHPStatAfterUpgrades();
 
 		for(var buff in _buffs)
@@ -62,9 +60,8 @@ public abstract class StatsSO : ScriptableObject
 		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_HP);
 	}
 	
-	protected int GetATKStatAfterUpgrades()
+	protected int GetATKStatAfterBuffs()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = GetATKStatAfterUpgrades();
 
 		for(var buff in _buffs)
@@ -75,9 +72,8 @@ public abstract class StatsSO : ScriptableObject
 		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATK);
 	}
 
-	protected int GetDEFStatAfterUpgrades()
+	protected int GetDEFStatAfterBuffs()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = GetDEFAfterUpgrades();
 
 		for(var buff in _buffs)
@@ -88,9 +84,9 @@ public abstract class StatsSO : ScriptableObject
 		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEF);
 	}
 
-	public abstract int GetHP(bool _hasUpgrades = true);
-	public abstract int GetATK(bool _hasUpgrades = true);
-	public abstract int GetDEF(bool _hasUpgrades = true);
+	public abstract int GetHP(bool _hasBuffs = true);
+	public abstract int GetATK(bool _hasBuffs = true);
+	public abstract int GetDEF(bool _hasBuffs = true);
 	//public abstract void SetHP(int val);
 	//public abstract void SetATK(int val);
 	//public abstract void SetDEF(int val);

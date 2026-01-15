@@ -2,37 +2,37 @@ using UnityEngine;
 
 public class EnemyStatsSO : StatsSO
 {
-	public override int GetHP(bool _hasUpgrades)
+	public override int GetHP(bool _hasBuffs)
 	{
-		if(_hasUpgrades)
+		if(_hasBuffs)
+		{
+			return GetHPAfterBuffs();
+		}
+		else
 		{
 			return GetHPAfterUpgrades(); 
 		}
-		else
-		{
-			return Mathf.Clamp(_hitPoints, 0, Limits.MAX_PLAYER_HP);
-		}
 	} 
-	public override int GetATK(bool _hasUpgrades)
+	public override int GetATK(bool _hasBuffs)
 	{
-		if(_hasUpgrades)
+		if(_hasBuffs)
+		{
+			return GetATKAfterBuffs();
+		}
+		else
 		{
 			return GetATKAfterUpgrades();
 		}
-		else
-		{
-			return Mathf.Clamp(_attackStat, 0, Limits.MAX_PLAYER_ATTACK);
-		}
 	}
-	public override int GetDEF(bool _hasUpgrades)
+	public override int GetDEF(bool _hasBuffs)
 	{
-		if(_hasUpgrades)
+		if(_hasBuffs)
+		{
+			return GetDEFAfterBuffs();
+		}
+		else
 		{
 			return GetDEFAfterUpgrades();
-		}
-		else
-		{
-			return Mathf.Clamp(_defenseStat, 0, Limits.MAX_PLAYER_DEFENSE)
 		}
 	}
 }
