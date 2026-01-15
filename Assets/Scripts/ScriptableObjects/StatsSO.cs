@@ -12,7 +12,6 @@ public abstract class StatsSO : ScriptableObject
 
 	protected int GetHPStatAfterUpgrades()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = _hitPoints;
 
 		for(var upgrade in _upgrades)
@@ -25,7 +24,6 @@ public abstract class StatsSO : ScriptableObject
 	
 	protected int GetATKStatAfterUpgrades()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = _attackStat;
 
 		for(var upgrade in _upgrades)
