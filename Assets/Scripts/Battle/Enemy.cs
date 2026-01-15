@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections.Generic;
 public class Enemy : MonoBehaviour
 {
 	[SerializeField] bool _isMoving = false;
-	[SerializeField] List<GameObject> _enemies;
+	[SerializeField] GameObject _enemy;
 	[SerializeField] int _hp = 100;
 	[SerializeField] EnemySpawner _spawner;
 
@@ -14,23 +15,23 @@ public class Enemy : MonoBehaviour
 		_rb = GetComponent<Rigidbody2D>();
 	}
 
-	void Initialize(List<GameObject> enemies)
+	void Initialize(GameObject enemy)
 	{
-		_enemies = new List<GameObject>(enemies);
+		_enemy = enemy;
 	}
 
 	void Update()
 	{
 		if(_hp <= 0)
 		{
-			spawner.Die(this.gameObject);
+			_spawner.Die(this.gameObject);
 			_hp = 100;
 		}
 
-		_rb.MovePosition(_rb.position + _pathfinder.AStar());
+		_rb.MovePosition(_rb.position + _pathfinder.AStar(_enemy.transform.position));
 	}
 
-	void SetSpawner(EnemySpawner spawner)
+	public void SetSpawner(EnemySpawner spawner)
 	{
 		if(spawner) return;
 

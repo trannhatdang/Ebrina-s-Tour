@@ -6,9 +6,9 @@ public class PlayerStatsSO : StatsSO
 	[SerializeField] private int _rageAttackStat = -1;
 	[SerializeField] private int _calmAttackStat = -1;
 
-	/*public override void SetHP(int val)
+	/*public override void SetHPStat(int val)
 	{
-		_hitPoints = Mathf.Clamp(val, 0, Limits.MAX_PLAYER_HP);	
+		_hitPoints = Mathf.Clamp(val, 0, Limits.MAX_PLAYER_HPStat);	
 	}
 	public override void SetATK(int val)
 	{
@@ -22,33 +22,33 @@ public class PlayerStatsSO : StatsSO
 	{
 		if(_hasBuffs)
 		{
-			return GetHPAfterBuffs();
+			return GetHPStatAfterBuffs();
 		}
 		else
 		{
-			return GetHPAfterUpgrades(); 
+			return GetHPStatAfterUpgrades(); 
 		}
 	} 
 	public override int GetATK(bool _hasBuffs)
 	{
 		if(_hasBuffs)
 		{
-			return GetATKAfterBuffs();
+			return GetATKStatAfterBuffs();
 		}
 		else
 		{
-			return GetATKAfterUpgrades();
+			return GetATKStatAfterUpgrades();
 		}
 	}
 	public override int GetDEF(bool _hasBuffs)
 	{
 		if(_hasBuffs)
 		{
-			return GetDEFAfterBuffs();
+			return GetDEFStatAfterBuffs();
 		}
 		else
 		{
-			return GetDEFAfterUpgrades();
+			return GetDEFStatAfterUpgrades();
 		}
 	}
 }

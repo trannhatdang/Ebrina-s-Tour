@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
 	private GameObject CreateEnemy()
 	{
-		GameObject gameObject = Instantiate(_enemyPrefab, transform.position, Quaternion.identity, transform.gameObject);
+		GameObject gameObject = Instantiate(_enemyPrefab, transform.position, Quaternion.identity, transform);
 		gameObject.name = "PooledEnemy";
 		gameObject.SetActive(false);
 		gameObject.GetComponent<Enemy>().SetSpawner(this);
