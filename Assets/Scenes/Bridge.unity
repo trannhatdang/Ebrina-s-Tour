@@ -245,7 +245,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -1369,6 +1369,7 @@ GameObject:
   - component: {fileID: 1451594373}
   - component: {fileID: 1451594375}
   - component: {fileID: 1451594374}
+  - component: {fileID: 1451594376}
   m_Layer: 0
   m_Name: RBorder
   m_TagString: Untagged
@@ -1403,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc600975c0165e14eae022a03c587c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBorder
+  _movingCamera: {fileID: 0}
   _isLeft: 0
 --- !u!61 &1451594375
 BoxCollider2D:
@@ -1450,6 +1452,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.23221004, y: 4.975393}
   m_EdgeRadius: 0
+--- !u!50 &1451594376
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451594372}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 100000
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1519712914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1865,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0, z: 0}
@@ -2888,6 +2917,7 @@ GameObject:
   - component: {fileID: 1635399180}
   - component: {fileID: 1635399182}
   - component: {fileID: 1635399181}
+  - component: {fileID: 1635399183}
   m_Layer: 0
   m_Name: LBorder
   m_TagString: Untagged
@@ -2922,6 +2952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc600975c0165e14eae022a03c587c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraBorder
+  _movingCamera: {fileID: 0}
   _isLeft: 1
 --- !u!61 &1635399182
 BoxCollider2D:
@@ -2969,6 +3000,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.52537346, y: 4.975393}
   m_EdgeRadius: 0
+--- !u!50 &1635399183
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635399179}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000000
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1807677307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,7 +3149,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1922782064121580694, guid: b712545a9e967f6449a15290baff74a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3194,7 +3252,7 @@ Transform:
   m_GameObject: {fileID: 1810338986}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.692, y: -1.959, z: 0}
+  m_LocalPosition: {x: -7.708, y: -2.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

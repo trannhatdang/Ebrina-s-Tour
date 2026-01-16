@@ -25,6 +25,7 @@ public class MovingCamera : MonoBehaviour
 	{
 		isMoving = true;
 		moveLeft = isLeft;
+		//Debug.Log("hi");
 	}
 
 	public void Stop()
