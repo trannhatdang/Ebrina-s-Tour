@@ -12,7 +12,7 @@ public class Pathfinder : MonoBehaviour
 		}
 
 		Vector2 retval = new Vector2(0, 0);
-		float maxDist = 1.0f;
+		float minDist = 99999.0f;
 
 		for(int i = -1; i <= 1; ++i)
 		{
@@ -21,9 +21,9 @@ public class Pathfinder : MonoBehaviour
 				Vector2 dir = new Vector2(i, j);
 				float newDist = AstarMoveBlob((Vector2)_astarBlob.transform.position, dir, target);
 
-				if(newDist > maxDist)
+				if(newDist < minDist)
 				{
-					maxDist = newDist;
+					minDist = newDist;
 					retval = dir;
 				}
 			}

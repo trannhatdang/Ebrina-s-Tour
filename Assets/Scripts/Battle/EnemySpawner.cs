@@ -4,7 +4,9 @@ using UnityEngine.Pool;
 public class EnemySpawner : MonoBehaviour
 {
 	[SerializeField] GameObject _enemyPrefab;
+	[SerializeField] GameObject _player;
 	private ObjectPool<GameObject> pool;
+	[SerializeField] private float _timer = 100;
 
 	void Awake()
 	{
@@ -25,12 +27,29 @@ public class EnemySpawner : MonoBehaviour
 		);
 	}
 
+	void FixedUpdate()
+	{
+		if(_timer <= 0)
+		{
+			Spawn();
+			_timer = 2;
+		}
+		else
+		{
+			_timer -= 0.02f;
+		}
+	}
+
 	private GameObject CreateEnemy()
 	{
 		GameObject gameObject = Instantiate(_enemyPrefab, transform.position, Quaternion.identity, transform);
 		gameObject.name = "PooledEnemy";
 		gameObject.SetActive(false);
-		gameObject.GetComponent<Enemy>().SetSpawner(this);
+
+		Enemy enemy = gameObject.GetComponent<Enemy>();
+		enemy.Initialize(_player, this);
+		//enemy.SetSpawner(this);
+		//enemy.SetEnemy(_player);
 
 		return gameObject;
 	}
