@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 	[SerializeField] bool _isMoving = false;
 	[SerializeField] GameObject _enemy;
 	[SerializeField] EnemySpawner _spawner;
-	[SerializeField] float _moveCooldown = 2f;
 	[SerializeField] Animator _animator; 
 
 	private Rigidbody2D _rb;
@@ -32,14 +31,10 @@ public class Enemy : MonoBehaviour
 			_hp = 100;
 		}
 
-		if(_moveCooldown <= 0)
+		if(_isMoving)
 		{
 			_rb.MovePosition(_rb.position + _pathfinder.AStar(_enemy.transform.position) * Time.fixedDeltaTime);
-			_moveCooldown = 2f;
-		}
-		else
-		{
-			_moveCooldown -= 0.02f;
+			StartMoving();
 		}
 	}
 
