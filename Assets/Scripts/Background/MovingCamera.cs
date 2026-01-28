@@ -3,8 +3,8 @@ using UnityEngine;
 public class MovingCamera : MonoBehaviour
 {
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	[SerializeField] Player _player;
-	int _moveSpeed = 2;
+	[SerializeField] private Player _player;
+	[SerializeField] private int _moveSpeed = 2;
 
 	public bool isMoving {get; private set;} = false;
 	public bool moveLeft {get; private set;} = false;
@@ -25,6 +25,7 @@ public class MovingCamera : MonoBehaviour
 	{
 		isMoving = true;
 		moveLeft = isLeft;
+		//Debug.Log("hi");
 	}
 
 	public void Stop()

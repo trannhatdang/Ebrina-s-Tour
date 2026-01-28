@@ -12,12 +12,11 @@ public abstract class StatsSO : ScriptableObject
 
 	protected int GetHPStatAfterUpgrades()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = _hitPoints;
 
-		for(var upgrade in _upgrades)
+		foreach(var upgrade in _upgrades)
 		{
-			retval += _upgrades.HPBoost;
+			retval += upgrade.HPUpgrade;
 		}
 
 		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_HP);
@@ -25,34 +24,33 @@ public abstract class StatsSO : ScriptableObject
 	
 	protected int GetATKStatAfterUpgrades()
 	{
-		if(_upgrades.Count == 0) return;
 		int retval = _attackStat;
 
-		for(var upgrade in _upgrades)
+		foreach(var upgrade in _upgrades)
 		{
-			retval += _upgrades.ATKBoost;
+			retval += upgrade.ATKUpgrade;
 		}
 
-		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATK);
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATTACK);
 	}
 
 	protected int GetDEFStatAfterUpgrades()
 	{
 		int retval = _defenseStat;
 
-		for(var upgrade in _upgrades)
+		foreach(var upgrade in _upgrades)
 		{
-			retval += _upgrades.DEFBoost;
+			retval += upgrade.DEFUpgrade;
 		}
 
-		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEF);
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEFENSE);
 	}
 
 	protected int GetHPStatAfterBuffs()
 	{
 		int retval = GetHPStatAfterUpgrades();
 
-		for(var buff in _buffs)
+		foreach(var buff in _buffs)
 		{
 			retval += buff.HPBuff;
 		}
@@ -64,24 +62,24 @@ public abstract class StatsSO : ScriptableObject
 	{
 		int retval = GetATKStatAfterUpgrades();
 
-		for(var buff in _buffs)
+		foreach(var buff in _buffs)
 		{
 			retval += buff.ATKBuff;
 		}
 
-		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATK);
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_ATTACK);
 	}
 
 	protected int GetDEFStatAfterBuffs()
 	{
-		int retval = GetDEFAfterUpgrades();
+		int retval = GetDEFStatAfterUpgrades();
 
-		for(var buff in _buffs)
+		foreach(var buff in _buffs)
 		{
-			retval += buff.DEFBoost;
+			retval += buff.DEFBuff;
 		}
 
-		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEF);
+		return Mathf.Clamp(retval, 0, Limits.MAX_PLAYER_DEFENSE);
 	}
 
 	public abstract int GetHP(bool _hasBuffs = true);

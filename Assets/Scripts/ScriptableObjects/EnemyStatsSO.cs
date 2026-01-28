@@ -6,33 +6,33 @@ public class EnemyStatsSO : StatsSO
 	{
 		if(_hasBuffs)
 		{
-			return GetHPAfterBuffs();
+			return GetHPStatAfterBuffs();
 		}
 		else
 		{
-			return GetHPAfterUpgrades(); 
+			return GetHPStatAfterUpgrades(); 
 		}
 	} 
 	public override int GetATK(bool _hasBuffs)
 	{
 		if(_hasBuffs)
 		{
-			return GetATKAfterBuffs();
+			return GetATKStatAfterBuffs();
 		}
 		else
 		{
-			return GetATKAfterUpgrades();
+			return GetATKStatAfterUpgrades();
 		}
 	}
 	public override int GetDEF(bool _hasBuffs)
 	{
 		if(_hasBuffs)
 		{
-			return GetDEFAfterBuffs();
+			return GetDEFStatAfterBuffs();
 		}
 		else
 		{
-			return GetDEFAfterUpgrades();
+			return GetDEFStatAfterUpgrades();
 		}
 	}
 }

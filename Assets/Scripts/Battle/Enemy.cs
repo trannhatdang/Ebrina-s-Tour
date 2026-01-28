@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections.Generic;
 public class Enemy : MonoBehaviour
 {
-	[SerializeField] bool _isMoving = false;
-	[SerializeField] List<GameObject> _enemies;
 	[SerializeField] int _hp = 100;
+	[SerializeField] bool _isMoving = false;
+	[SerializeField] GameObject _enemy;
 	[SerializeField] EnemySpawner _spawner;
+	[SerializeField] Animator _animator; 
 
 	private Rigidbody2D _rb;
 	private Pathfinder _pathfinder;
@@ -12,29 +14,52 @@ public class Enemy : MonoBehaviour
 	{
 		_pathfinder = GetComponent<Pathfinder>();
 		_rb = GetComponent<Rigidbody2D>();
+		_animator = GetComponent<Animator>();
 	}
 
-	void Initialize(List<GameObject> enemies)
+	public void Initialize(GameObject enemy, EnemySpawner spawner)
 	{
-		_enemies = new List<GameObject>(enemies);
+		_enemy = enemy;
+		_spawner = spawner;
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		if(_hp <= 0)
 		{
-			spawner.Die(this.gameObject);
+			_spawner.Die(this.gameObject);
 			_hp = 100;
 		}
 
-		_rb.MovePosition(_rb.position + _pathfinder.AStar());
+		if(_isMoving)
+		{
+			_rb.MovePosition(_rb.position + _pathfinder.AStar(_enemy.transform.position) * Time.fixedDeltaTime);
+			StartMoving();
+		}
 	}
 
-	void SetSpawner(EnemySpawner spawner)
+	public void StartMoving()
+	{
+		_animator.SetBool("Moving", true);
+	}
+
+	public void StopMoving()
+	{
+		_animator.SetBool("Moving", false);
+	}
+
+	public void SetSpawner(EnemySpawner spawner)
 	{
 		if(spawner) return;
 
 		_spawner = spawner;
+	}
+
+	public void SetEnemy(GameObject enemy)
+	{
+		if(enemy) return;
+
+		_enemy = enemy;
 	}
 
 	void OnCollisionEnter2D(Collision2D other)
